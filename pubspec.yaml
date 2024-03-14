@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   riverpod: ^2.5.1
   flutter_riverpod: ^2.5.1
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
