@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interntrial/models/user_model.dart';
+import 'package:interntrial/http_eg/models/user_model.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.e});
@@ -24,14 +24,15 @@ class DetailScreen extends StatelessWidget {
               ),
               Center(
                 child: CircleAvatar(
-                  maxRadius: 60,
+                  maxRadius: 70,
                   backgroundImage: NetworkImage(e.avatar),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              Text("${e.firstname}${e.lasttname}"),
+              Text("${e.firstname}  ${e.lasttname}"),
+              //  Text("${e.firstname}${e.lasttname}"),
               const SizedBox(
                 height: 10,
               ),

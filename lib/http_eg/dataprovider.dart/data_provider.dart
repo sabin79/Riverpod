@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interntrial/models/user_model.dart';
+import 'package:interntrial/http_eg/models/user_model.dart';
 
 import '../services/service.dart';
 
