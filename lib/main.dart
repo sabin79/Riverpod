@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interntrial/crud_opertaion/curd_homepage.dart';
 import 'package:interntrial/http_eg/home/my_home_page.dart';
 import 'package:interntrial/provider_state_provider/pro_homepage.dart';
 import 'package:riverpod/riverpod.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Intern Day 1 ',
-      home: ProHomePage(),
+      home: CurdHomePage(),
     );
   }
 }
