@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interntrial/http_eg/dataprovider.dart/data_provider.dart';
-import 'package:interntrial/http_eg/models/user_model.dart';
-import 'package:interntrial/http_eg/screens/detail_screens.dart';
+import 'package:interntrial/day_1/http_eg/dataprovider.dart/data_provider.dart';
+import 'package:interntrial/day_1/http_eg/models/user_model.dart';
+import 'package:interntrial/day_1/http_eg/screens/detail_screens.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});

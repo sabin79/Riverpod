@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interntrial/pageview_dots-indiactor/welcome_notifiler.dart';
+import 'package:interntrial/day_1/pageview_dots-indiactor/welcome_notifiler.dart';
 
 class Welcome extends ConsumerStatefulWidget {
   const Welcome({super.key});

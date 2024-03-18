@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interntrial/http_eg/models/user_model.dart';
+import 'package:interntrial/day_1/http_eg/models/user_model.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.e});

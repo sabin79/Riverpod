@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:interntrial/crud_opertaion/curd_homepage.dart';
-import 'package:interntrial/http_eg/home/my_home_page.dart';
-import 'package:interntrial/provider_state_provider/pro_homepage.dart';
+import 'package:interntrial/day_1/crud_opertaion/curd_homepage.dart';
+import 'package:interntrial/day_1/http_eg/home/my_home_page.dart';
+import 'package:interntrial/day_1/provider_state_provider/pro_homepage.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'day_2/variable.dart';
+import 'day_3/home3.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Intern Day 1 ',
-      home: CurdHomePage(),
+      home: HomePage3(),
     );
   }
 }
