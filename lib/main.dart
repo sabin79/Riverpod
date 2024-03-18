@@ -6,7 +6,8 @@ import 'package:riverpod/riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'day_2/variable.dart';
-import 'day_3/home3.dart';
+import 'day_3/generator/homepage_gen.dart';
+import 'day_3/select_method/home3.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Intern Day 1 ',
-      home: HomePage3(),
+      // title: 'Intern Day 1 ',
+      home: HomePageGen(),
     );
   }
 }
