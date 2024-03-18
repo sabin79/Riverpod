@@ -6,6 +6,7 @@ import 'package:riverpod/riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'day_2/variable.dart';
+import 'day_3/Navigation_bar/navigationbar.dart';
 import 'day_3/generator/homepage_gen.dart';
 import 'day_3/notifier_notifierprovider/home_notifier.dart';
 import 'day_3/select_method/home3.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // title: 'Intern Day 1 ',
-      home: HomePageNotifier(),
+      home: Navigationbar(),
     );
   }
 }
@@ -37,8 +38,24 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     var value = ref.watch(helloStateProvider);
     return Scaffold(
-      body: Center(
-        child: Text(value),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_max_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.browse_gallery),
+            icon: Icon(Icons.browse_gallery_outlined),
+            label: 'Gallery',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.person_2_outlined),
+            label: 'Profile',
+          )
+        ],
       ),
     );
   }

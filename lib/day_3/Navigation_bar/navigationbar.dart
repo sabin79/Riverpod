@@ -11,8 +11,26 @@ class Navigationbar extends ConsumerWidget {
         title: const Text("Navigation Bar"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text("Navigation bar"),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_max_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.browse_gallery),
+            icon: Icon(Icons.browse_gallery_outlined),
+            label: 'Gallery',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.person_2_outlined),
+            label: 'Profile',
+          )
+        ],
+        selectedIndex: 0,
+        indicatorColor: Colors.deepPurple.shade200,
       ),
     );
   }
