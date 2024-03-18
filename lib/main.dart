@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'day_2/variable.dart';
 import 'day_3/generator/homepage_gen.dart';
+import 'day_3/notifier_notifierprovider/home_notifier.dart';
 import 'day_3/select_method/home3.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // title: 'Intern Day 1 ',
-      home: HomePageGen(),
+      home: HomePageNotifier(),
     );
   }
 }
