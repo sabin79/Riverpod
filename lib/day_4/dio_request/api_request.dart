@@ -1,11 +1,10 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interntrial/day_4/dio_request/display_product.dart';
 import 'package:interntrial/day_4/dio_request/product.dart';
 
-class ApiCall extends StatelessWidget {
+class ApiCall extends ConsumerWidget {
   const ApiCall({super.key});
 
   Future<List<Product>> fetchApi() async {
@@ -19,13 +18,11 @@ class ApiCall extends StatelessWidget {
       products.add(Product.fromJson(data));
     }
 
-    print(products);
-
     return products;
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef) {
     return FutureBuilder<List<Product>>(
       future: fetchApi(),
       builder: (context, snapshot) {
@@ -44,12 +41,22 @@ class ApiCall extends StatelessWidget {
                   }));
                   print(snapshot.data![index].toString());
                 },
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      snapshot.data![index].title,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10.0, right: 8, left: 8),
+                  child: Card(
+                    color: Colors.blueGrey.shade100,
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage(
+                          snapshot.data![index].image,
+                        ),
+                      ),
+                      title: Text(
+                        snapshot.data![index].title,
+                      ),
+                      subtitle: Text(snapshot.data![index].toString()),
                     ),
-                    subtitle: Text(snapshot.data![index].toString()),
                   ),
                 ),
               );

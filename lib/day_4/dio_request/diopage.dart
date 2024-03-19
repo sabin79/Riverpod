@@ -7,9 +7,11 @@ class DioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.9),
       appBar: AppBar(
         title: const Text('Api development'),
         centerTitle: true,
+        backgroundColor: Colors.transparent,
         elevation: 5,
       ),
       body: const ApiCall(),

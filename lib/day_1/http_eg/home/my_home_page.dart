@@ -18,52 +18,55 @@ class MyHomePage extends ConsumerWidget {
         backgroundColor: Colors.blueGrey.shade500,
       ),
       body: data.when(
-          data: (data) {
-            List<UserModel> userList = data.map((e) => e).toList();
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: userList.length,
-                      itemBuilder: (_, index) {
-                        return InkWell(
-                          onTap: () =>
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => DetailScreen(
-                                        e: userList[index],
-                                      ))),
-                          child: Card(
-                            color: Colors.white,
-                            elevation: 4,
-                            margin: const EdgeInsets.symmetric(vertical: 10),
-                            child: ListTile(
-                              title: Text(
-                                userList[index].firstname,
-                              ),
-                              subtitle: Text(
-                                userList[index].lasttname,
-                              ),
-                              trailing: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                  userList[index].avatar,
-                                ),
+        data: (data) {
+          List<UserModel> userList = data.map((e) => e).toList();
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: userList.length,
+                    itemBuilder: (_, index) {
+                      return InkWell(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(
+                              e: userList[index],
+                            ),
+                          ),
+                        ),
+                        child: Card(
+                          color: Colors.white,
+                          elevation: 4,
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: ListTile(
+                            title: Text(
+                              userList[index].firstname,
+                            ),
+                            subtitle: Text(
+                              userList[index].lasttname,
+                            ),
+                            trailing: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                userList[index].avatar,
                               ),
                             ),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
-            );
-          },
-          error: (err, s) => Text(err.toString()),
-          loading: () => const Center(
-                child: CircularProgressIndicator(),
-              )),
+                ),
+              ],
+            ),
+          );
+        },
+        error: (err, s) => Text(err.toString()),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 }
