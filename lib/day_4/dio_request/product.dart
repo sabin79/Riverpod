@@ -34,6 +34,6 @@ class ProductRating {
 
   ProductRating({required this.rate, required this.count});
   factory ProductRating.fromJson(Map<String, dynamic> json) {
-    return ProductRating(rate: json['rate'], count: json['count']);
+    return ProductRating(rate: json['rate'].toDouble(), count: json['count']);
   }
 }

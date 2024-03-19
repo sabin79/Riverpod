@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:interntrial/day_4/dio_request/display_product.dart';
@@ -10,11 +12,14 @@ class ApiCall extends StatelessWidget {
     Dio dio = Dio();
 
     var response = await dio.get('https://fakestoreapi.com/products');
-    final List<dynamic> responseData = response.data;
-    List<Product> products =
-        responseData.map(([json]) => Product.fromJson(json)).toList();
+    List<dynamic> responseData = response.data;
 
-    print(response.data.toString());
+    List<Product> products = [];
+    for (var data in responseData) {
+      products.add(Product.fromJson(data));
+    }
+
+    print(products);
 
     return products;
   }
@@ -23,33 +28,32 @@ class ApiCall extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder<List<Product>>(
       future: fetchApi(),
-      builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
-        if (snapshot.hasData) {
-          return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (BuildContext context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DisplayProduct(
-                          product: snapshot.data![index],
-                        ),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    child: ListTile(
-                      title: Text(snapshot.data![index].title),
-                      subtitle: Text(snapshot.data![index].toString()),
-                    ),
-                  ),
-                );
-              });
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Error fetching data'));
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DisplayProduct(product: snapshot.data![index]);
+                  }));
+                  print(snapshot.data![index].toString());
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text(
+                      snapshot.data![index].title,
+                    ),
+                    subtitle: Text(snapshot.data![index].toString()),
+                  ),
+                ),
+              );
+            },
           );
         }
       },
