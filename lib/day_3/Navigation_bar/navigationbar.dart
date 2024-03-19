@@ -31,6 +31,7 @@ class Navigationbar extends ConsumerWidget {
         ],
         selectedIndex: 0,
         indicatorColor: Colors.deepPurple.shade200,
+        onDestinationSelected: (value) {},
       ),
     );
   }
