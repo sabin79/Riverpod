@@ -31,14 +31,16 @@ class FilterHomePage extends ConsumerWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: players,
+              itemCount: 30,
               itemBuilder: (context, index) => ListTile(
                 title: Text(
+                  //  'name'
                   players[index]['name'],
                   style: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
+                  //'country'
                   players[index]['country'],
                 ),
               ),

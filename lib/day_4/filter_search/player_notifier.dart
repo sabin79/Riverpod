@@ -1,9 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 part 'player_notifier.g.dart';
 
 @riverpod
 class PlayerNotifier extends _$PlayerNotifier {
-  final List<Map<String, dynamic>> _playerList = [
+  final List<Map<String, dynamic>> allplayers = [
     {"name": "Sachin Tendulkar", "country": "India"},
     {"name": "Virat Kohli", "country": "India"},
     {"name": "Rohit Sharma", "country": "India"},
@@ -18,15 +19,15 @@ class PlayerNotifier extends _$PlayerNotifier {
 
   @override
   int build() {
-    return _playerList.length;
+    return allplayers.length;
   }
 
   void filterPlayer(String playerName) {
     List<Map<String, dynamic>> results = [];
     if (playerName.isEmpty) {
-      results = _playerList;
+      results = allplayers;
     } else {
-      results = _playerList
+      results = state
           .where((element) => element['name']
               .toString()
               .toLowerCase()
