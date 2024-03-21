@@ -10,6 +10,7 @@ import 'day_3/Navigation_bar/navigationbar.dart';
 import 'day_3/generator/homepage_gen.dart';
 import 'day_3/notifier_notifierprovider/home_notifier.dart';
 import 'day_3/select_method/home3.dart';
+import 'day_4/dio_request/api_request.dart';
 import 'day_4/dio_request/diopage.dart';
 import 'day_4/filter_search/filter_search.dart';
 

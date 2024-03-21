@@ -31,7 +31,7 @@ class FilterHomePage extends ConsumerWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 30,
+              itemCount: players!.length,
               itemBuilder: (context, index) => ListTile(
                 title: Text(
                   //  'name'

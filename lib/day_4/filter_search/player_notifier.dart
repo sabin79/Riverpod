@@ -18,8 +18,8 @@ class PlayerNotifier extends _$PlayerNotifier {
   ];
 
   @override
-  int build() {
-    return allplayers.length;
+  build() {
+    return allplayers;
   }
 
   void filterPlayer(String playerName) {
@@ -27,14 +27,16 @@ class PlayerNotifier extends _$PlayerNotifier {
     if (playerName.isEmpty) {
       results = allplayers;
     } else {
-      results = state
-          .where((element) => element['name']
-              .toString()
-              .toLowerCase()
-              .contains(playerName.toLowerCase()))
+      results = allplayers
+          .where(
+            (element) => element['name']
+                .toString()
+                .toLowerCase()
+                .contains(playerName.toLowerCase()),
+          )
           .toList();
     }
 
-    state = results.length;
+    state = results; // Assign the filtered list to state
   }
 }

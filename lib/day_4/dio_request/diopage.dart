@@ -14,7 +14,7 @@ class DioPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 5,
       ),
-      body: const ApiCall(),
+      body: ApiCall(),
     );
   }
 }
