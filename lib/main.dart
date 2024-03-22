@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interntrial/day_1/crud_opertaion/curd_homepage.dart';
 import 'package:interntrial/day_1/http_eg/home/my_home_page.dart';
 import 'package:interntrial/day_1/provider_state_provider/pro_homepage.dart';
+import 'package:interntrial/tools/animated_toggle/theme/theme.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,9 +14,14 @@ import 'day_3/select_method/home3.dart';
 import 'day_4/dio_request/api_request.dart';
 import 'day_4/dio_request/diopage.dart';
 import 'day_4/filter_search/filter_search.dart';
+import 'tools/animated_toggle/pages/togle_home.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,10 +30,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       // title: 'Intern Day 1 ',
-      home: DioPage(),
+      theme: lightMode,
+      darkTheme: dartMode,
+      home: const ToggleHome(),
     );
   }
 }
